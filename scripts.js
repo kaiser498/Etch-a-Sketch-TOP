@@ -40,4 +40,20 @@ colorBtns.forEach((btn) => {
             })
         })
     })
-})
+});
+
+const changeGrid = document.createElement("button");
+changeGrid.classList.toggle("changeGrid");
+changeGrid.addEventListener("click", () => {
+    let numInGrid = +prompt("Enter desired grid boxes in length or width");
+    let numSquared = numInGrid * numInGrid;
+    for (let i = 0; i < numSquared; i++) {
+        const div = document.createElement("div");
+        div.classList.toggle("oneSquareDiv");
+        container.append(div);
+    }
+});
+
+changeGrid.textContent = "Change Grid Box Length"
+const colorBtn = document.querySelector(".colorBtn");
+colorContainer.insertBefore(changeGrid, colorBtn);
