@@ -46,12 +46,33 @@ const changeGrid = document.createElement("button");
 changeGrid.classList.toggle("changeGrid");
 changeGrid.addEventListener("click", () => {
     let numInGrid = +prompt("Enter desired grid boxes in length or width");
+    if (Number.isInteger(numInGrid)) { container.replaceChildren() }
     let numSquared = numInGrid * numInGrid;
     for (let i = 0; i < numSquared; i++) {
         const div = document.createElement("div");
         div.classList.toggle("oneSquareDiv");
         container.append(div);
+        div.style.width = `${640 / numInGrid}px`;
+        div.style.height = `${640 / numInGrid}px`;
     }
+    const divsInGrid = document.querySelectorAll(".oneSquareDiv");
+
+    divsInGrid.forEach((div) => {
+        div.addEventListener("mouseenter", () => {
+            div.style.backgroundColor = "black";
+        })
+    })
+
+    const colorBtns = document.querySelectorAll(".colorBtn");
+    colorBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            divsInGrid.forEach((div) => {
+                div.addEventListener("mouseenter", () => {
+                    div.style.backgroundColor = btn.textContent;
+                })
+            })
+        })
+    });
 });
 
 changeGrid.textContent = "Change Grid Box Length"
