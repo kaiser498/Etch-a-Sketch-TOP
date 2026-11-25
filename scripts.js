@@ -29,4 +29,15 @@ colorChoices.forEach((color) => {
 })
 
 const body = document.body;
-body.insertBefore(colorContainer, container)
+body.insertBefore(colorContainer, container);
+
+const colorBtns = document.querySelectorAll(".colorBtn");
+colorBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        divsInGrid.forEach((div) => {
+            div.addEventListener("mouseenter", () => {
+                div.style.backgroundColor = btn.textContent;
+            })
+        })
+    })
+})
