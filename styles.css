@@ -9,3 +9,16 @@ body {
     align-items: center;
     height: 100vh;
 }
+
+#container {
+    outline: 1px solid black;
+    display: flex;
+    width: 640px;
+    flex-wrap: wrap;
+}
+
+.oneSquareDiv {
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+}
