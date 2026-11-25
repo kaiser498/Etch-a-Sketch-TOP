@@ -5,3 +5,11 @@ for (let i = 0; i < 256; i++) {
     div.classList.toggle("oneSquareDiv");
     container.append(div);
 }
+
+const divsInGrid = document.querySelectorAll(".oneSquareDiv");
+
+divsInGrid.forEach((div) => {
+    div.addEventListener("mouseenter", () => {
+        div.style.backgroundColor = "black";
+    })
+})
